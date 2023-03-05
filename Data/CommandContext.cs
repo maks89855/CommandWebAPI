@@ -5,7 +5,7 @@ namespace CommandWebAPI.Data
 {
     public class CommandContext: DbContext
     {
-        public CommandContext(DbContextOptions<CommandContext> opt):base()
+        public CommandContext(DbContextOptions<CommandContext> opt):base(opt)
         {
             
         }
