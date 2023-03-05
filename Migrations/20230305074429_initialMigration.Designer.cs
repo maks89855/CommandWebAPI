@@ -11,7 +11,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace CommandWebAPI.Migrations
 {
     [DbContext(typeof(CommandContext))]
-    [Migration("20230305072147_initialMigration")]
+    [Migration("20230305074429_initialMigration")]
     partial class initialMigration
     {
         /// <inheritdoc />
