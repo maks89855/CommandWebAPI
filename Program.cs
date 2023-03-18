@@ -1,13 +1,13 @@
 using CommandWebAPI.Data;
 using Microsoft.EntityFrameworkCore;
+using Newtonsoft.Json.Serialization;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 
-builder.Services.AddControllers();
+builder.Services.AddControllers().AddNewtonsoftJson(s=>s.SerializerSettings.ContractResolver =  new CamelCasePropertyNamesContractResolver());
 builder.Services.AddScoped<IApplicationRepository, ApplicationRepository>();
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddDbContext<CommandContext>(opt =>
 {
     opt.UseSqlServer(builder.Configuration.GetConnectionString("MicrosoftSQLServer"));

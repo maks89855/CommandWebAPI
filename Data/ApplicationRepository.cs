@@ -9,6 +9,20 @@ namespace CommandWebAPI.Data
         {
             _ctx = commandContext;
         }
+
+        public void CreateCommand(Command command)
+        {
+            if(command == null) throw new ArgumentNullException(nameof(command));
+            _ctx.Commands.Add(command);
+        }
+
+        public void DeleteCommand(Command command)
+        {
+            if (command == null) throw new ArgumentNullException(nameof(command));
+            _ctx.Commands.Remove(command);
+            _ctx.SaveChanges();
+        }
+
         public IEnumerable<Command> GetAllCommand()
         {
             return _ctx.Commands.ToList();
@@ -17,6 +31,17 @@ namespace CommandWebAPI.Data
         public Command GetCommandById(int id)
         {
             return _ctx.Commands.FirstOrDefault(x => x.Id == id);
+        }
+
+        public bool SaveChanges()
+        {
+            return (_ctx.SaveChanges()>=0);
+
+        }
+
+        public void UpdateCommand(Command command)
+        {
+            
         }
     }
 }

@@ -2,8 +2,13 @@
 
 namespace CommandWebAPI.Data
 {
-    public class StaticRepository : IApplicationRepository
+    public class StaticRepository
     {
+        public void CreateCommand(Command command)
+        {
+            throw new NotImplementedException();
+        }
+
         public IEnumerable<Command> GetAllCommand()
         {
             var commands = new List<Command>() 
@@ -19,6 +24,11 @@ namespace CommandWebAPI.Data
         public Command GetCommandById(int id)
         {
             return new Command { Id = 0, HowTo = "", Line = "", Platform = "" };
+        }
+
+        public bool SaveChanges()
+        {
+            throw new NotImplementedException();
         }
     }
 }
